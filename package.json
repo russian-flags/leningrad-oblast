@@ -1,15 +1,15 @@
 {
   "name": "@russian-flags/leningrad-oblast",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ES modules and lazy loaders for SVG flags of urban settlements in Leningrad Oblast.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lKolabrodl/leningrad-oblast-flags.git"
+    "url": "git+https://github.com/russian-flags/leningrad-oblast.git"
   },
   "bugs": {
-    "url": "https://github.com/lKolabrodl/leningrad-oblast-flags/issues"
+    "url": "https://github.com/russian-flags/leningrad-oblast/issues"
   },
-  "homepage": "https://github.com/lKolabrodl/leningrad-oblast-flags#readme",
+  "homepage": "https://github.com/russian-flags/leningrad-oblast#readme",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -54,10 +54,11 @@
     "build:types": "tsc -p tsconfig.build.json",
     "build": "npm run clean && npm run build:source && npm run build:js && npm run build:types",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "node __tests__/run.js && node tests/package-smoke.js",
+    "test": "npm run build && node __tests__/run.js",
     "pack:dry": "npm pack --dry-run",
     "prepack": "npm run build",
-    "serve:demo": "node scripts/serve.js"
+    "example:dev": "npm --prefix examples run dev",
+    "example:build": "npm --prefix examples run build"
   },
   "keywords": [
     "leningrad-oblast",

@@ -8,11 +8,11 @@
 
 | Населенный пункт | Флаг | slug |
 | --- | --- | --- |
-| Выборг | <img src="./dist/flags/vyborg.svg" width="120" alt="Флаг Выборга"> | `vyborg` |
-| Гатчина | <img src="./dist/flags/gatchina.svg" width="120" alt="Флаг Гатчины"> | `gatchina` |
-| Тихвин | <img src="./dist/flags/tihvin.svg" width="120" alt="Флаг Тихвина"> | `tihvin` |
-| Приозерск | <img src="./dist/flags/priozersk.svg" width="120" alt="Флаг Приозерска"> | `priozersk` |
-| Сосновый Бор | <img src="./dist/flags/sosnovyy-bor.svg" width="120" alt="Флаг Соснового Бора"> | `sosnovyy-bor` |
+| Выборг | <img src="https://raw.githubusercontent.com/russian-flags/leningrad-oblast/main/assets/vyborg/index.svg" width="120" alt="Флаг Выборга"> | `vyborg` |
+| Гатчина | <img src="https://raw.githubusercontent.com/russian-flags/leningrad-oblast/main/assets/gatchina/index.svg" width="120" alt="Флаг Гатчины"> | `gatchina` |
+| Тихвин | <img src="https://raw.githubusercontent.com/russian-flags/leningrad-oblast/main/assets/tihvin/index.svg" width="120" alt="Флаг Тихвина"> | `tihvin` |
+| Приозерск | <img src="https://raw.githubusercontent.com/russian-flags/leningrad-oblast/main/assets/priozersk/index.svg" width="120" alt="Флаг Приозерска"> | `priozersk` |
+| Сосновый Бор | <img src="https://raw.githubusercontent.com/russian-flags/leningrad-oblast/main/assets/sosnovyy-bor/index.svg" width="120" alt="Флаг Соснового Бора"> | `sosnovyy-bor` |
 
 ## Возможности
 
@@ -206,14 +206,12 @@ import type {
 ## Демо
 
 ```bash
-npm run serve:demo
+cd examples
+npm install
+npm run dev
 ```
 
-Открыть:
-
-```text
-http://127.0.0.1:5173/examples/
-```
+Vite откроет страницу примера в браузере. Пример импортирует опубликованный пакет `@russian-flags/leningrad-oblast` так же, как это будет делать обычное приложение-потребитель.
 
 ## Разработка
 
@@ -235,8 +233,8 @@ npm run pack:dry
 
 ## Репозиторий
 
-- GitHub: <https://github.com/lKolabrodl/leningrad-oblast-flags>
-- Issues: <https://github.com/lKolabrodl/leningrad-oblast-flags/issues>
+- GitHub: <https://github.com/russian-flags/leningrad-oblast>
+- Issues: <https://github.com/russian-flags/leningrad-oblast/issues>
 
 ## Лицензия
 

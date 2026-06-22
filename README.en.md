@@ -8,11 +8,11 @@ A native ESM collection of SVG flags for cities and settlements in Leningrad Obl
 
 | Settlement | Flag | slug |
 | --- | --- | --- |
-| Vyborg | <img src="./dist/flags/vyborg.svg" width="120" alt="Flag of Vyborg"> | `vyborg` |
-| Gatchina | <img src="./dist/flags/gatchina.svg" width="120" alt="Flag of Gatchina"> | `gatchina` |
-| Tikhvin | <img src="./dist/flags/tihvin.svg" width="120" alt="Flag of Tikhvin"> | `tihvin` |
-| Priozersk | <img src="./dist/flags/priozersk.svg" width="120" alt="Flag of Priozersk"> | `priozersk` |
-| Sosnovy Bor | <img src="./dist/flags/sosnovyy-bor.svg" width="120" alt="Flag of Sosnovy Bor"> | `sosnovyy-bor` |
+| Vyborg | <img src="https://raw.githubusercontent.com/russian-flags/leningrad-oblast/main/assets/vyborg/index.svg" width="120" alt="Flag of Vyborg"> | `vyborg` |
+| Gatchina | <img src="https://raw.githubusercontent.com/russian-flags/leningrad-oblast/main/assets/gatchina/index.svg" width="120" alt="Flag of Gatchina"> | `gatchina` |
+| Tikhvin | <img src="https://raw.githubusercontent.com/russian-flags/leningrad-oblast/main/assets/tihvin/index.svg" width="120" alt="Flag of Tikhvin"> | `tihvin` |
+| Priozersk | <img src="https://raw.githubusercontent.com/russian-flags/leningrad-oblast/main/assets/priozersk/index.svg" width="120" alt="Flag of Priozersk"> | `priozersk` |
+| Sosnovy Bor | <img src="https://raw.githubusercontent.com/russian-flags/leningrad-oblast/main/assets/sosnovyy-bor/index.svg" width="120" alt="Flag of Sosnovy Bor"> | `sosnovyy-bor` |
 
 ## Features
 
@@ -209,14 +209,12 @@ Metadata exports (`settlements`, `settlementSlugs`, `resolveSettlementSlug`) can
 ## Demo
 
 ```bash
-npm run serve:demo
+cd examples
+npm install
+npm run dev
 ```
 
-Open:
-
-```text
-http://127.0.0.1:5173/examples/
-```
+Vite will open the example page in your browser. The example imports the published `@russian-flags/leningrad-oblast` package the same way a regular consuming app would.
 
 ## Development
 
@@ -238,8 +236,8 @@ To add a new settlement, add an entry to `src/settlements.ts`, put the SVG into 
 
 ## Repository
 
-- GitHub: <https://github.com/lKolabrodl/leningrad-oblast-flags>
-- Issues: <https://github.com/lKolabrodl/leningrad-oblast-flags/issues>
+- GitHub: <https://github.com/russian-flags/leningrad-oblast>
+- Issues: <https://github.com/russian-flags/leningrad-oblast/issues>
 
 ## License
 
