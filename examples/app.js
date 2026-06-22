@@ -1,4 +1,4 @@
-import { loadFlag, preloadFlag, settlements } from "../dist/index.js";
+import { loadFlag, preloadFlag, settlements } from "@russian-flags/leningrad-oblast";
 function requiredNode(selector) {
   const node = document.querySelector(selector);
   if (!node) {
