@@ -1,7 +1,7 @@
 {
   "name": "@russian-flags/leningrad-oblast",
-  "version": "1.0.1",
-  "description": "ES modules and lazy loaders for SVG flags of urban settlements in Leningrad Oblast.",
+  "version": "1.0.2",
+  "description": "SVG flags of cities and settlements in Leningrad Oblast, Russia for JavaScript and TypeScript: ESM imports and lazy loaders.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/russian-flags/leningrad-oblast.git"
@@ -61,12 +61,21 @@
     "example:build": "npm --prefix examples run build"
   },
   "keywords": [
-    "leningrad-oblast",
+    "russian-flags",
+    "leningrad-oblast-flags",
+    "leningrad-region",
+    "municipal-flags",
+    "city-flags",
+    "settlement-flags",
+    "flags-of-russia",
+    "svg-flags",
     "russia",
+    "russian",
     "flags",
     "svg",
-    "esm",
-    "lazy-loading"
+    "typescript",
+    "javascript",
+    "esm"
   ],
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
