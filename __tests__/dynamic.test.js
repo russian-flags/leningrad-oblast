@@ -16,13 +16,14 @@ const vyborgLoader = getFlagModuleLoader("vyborg");
 assert.equal(typeof vyborgLoader, "function");
 assert.equal(getFlagModuleLoader(" VYBORG "), vyborgLoader);
 assert.equal(getFlagModuleLoader("Выборг"), vyborgLoader);
+assert.equal(getFlagModuleLoader("Vyborg"), vyborgLoader);
 assert.equal(getFlagModuleLoader("yanino_1"), getFlagModuleLoader("yanino-1"));
 assert.equal(getFlagModuleLoader("unknown"), undefined);
 
 assert.doesNotThrow(() => preloadFlag("vyborg"));
 assert.doesNotThrow(() => preloadFlag("unknown"));
 
-const vyborgModule = await loadFlagModule("Выборг");
+const vyborgModule = await loadFlagModule("Vyborg");
 assert.equal(vyborgModule.default, vyborgModule.createImage);
 assert.equal(typeof vyborgModule.createImage, "function");
 assert.ok(vyborgModule.src.endsWith("/flags/vyborg.svg"));

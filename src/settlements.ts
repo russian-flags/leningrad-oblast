@@ -2,364 +2,509 @@ import type { SettlementMeta, SettlementSlug } from "./types.js";
 
 export const settlements = Object.freeze([
   {
-    "slug": "boksitogorsk",
-    "code": "BOKSITOGORSK",
-    "name": "Бокситогорск"
+    slug: "boksitogorsk",
+    code: "BOKSITOGORSK",
+    nameRu: "Бокситогорск",
+    nameEn: "Boksitogorsk",
+    aliases: [],
   },
   {
-    "slug": "bugry",
-    "code": "BUGRY",
-    "name": "Бугры"
+    slug: "bugry",
+    code: "BUGRY",
+    nameRu: "Бугры",
+    nameEn: "Bugry",
+    aliases: [],
   },
   {
-    "slug": "volosovo",
-    "code": "VOLOSOVO",
-    "name": "Волосово"
+    slug: "volosovo",
+    code: "VOLOSOVO",
+    nameRu: "Волосово",
+    nameEn: "Volosovo",
+    aliases: [],
   },
   {
-    "slug": "volhov",
-    "code": "VOLHOV",
-    "name": "Волхов"
+    slug: "volhov",
+    code: "VOLHOV",
+    nameRu: "Волхов",
+    nameEn: "Volkhov",
+    aliases: [],
   },
   {
-    "slug": "vsevolozhsk",
-    "code": "VSEVOLOZHSK",
-    "name": "Всеволожск"
+    slug: "vsevolozhsk",
+    code: "VSEVOLOZHSK",
+    nameRu: "Всеволожск",
+    nameEn: "Vsevolozhsk",
+    aliases: [],
   },
   {
-    "slug": "vyborg",
-    "code": "VYBORG",
-    "name": "Выборг"
+    slug: "vyborg",
+    code: "VYBORG",
+    nameRu: "Выборг",
+    nameEn: "Vyborg",
+    aliases: [],
   },
   {
-    "slug": "vysotsk",
-    "code": "VYSOTSK",
-    "name": "Высоцк"
+    slug: "vysotsk",
+    code: "VYSOTSK",
+    nameRu: "Высоцк",
+    nameEn: "Vysotsk",
+    aliases: [],
   },
   {
-    "slug": "gatchina",
-    "code": "GATCHINA",
-    "name": "Гатчина"
+    slug: "gatchina",
+    code: "GATCHINA",
+    nameRu: "Гатчина",
+    nameEn: "Gatchina",
+    aliases: [],
   },
   {
-    "slug": "ivangorod",
-    "code": "IVANGOROD",
-    "name": "Ивангород"
+    slug: "ivangorod",
+    code: "IVANGOROD",
+    nameRu: "Ивангород",
+    nameEn: "Ivangorod",
+    aliases: [],
   },
   {
-    "slug": "kamennogorsk",
-    "code": "KAMENNOGORSK",
-    "name": "Каменногорск"
+    slug: "kamennogorsk",
+    code: "KAMENNOGORSK",
+    nameRu: "Каменногорск",
+    nameEn: "Kamennogorsk",
+    aliases: [],
   },
   {
-    "slug": "kingisepp",
-    "code": "KINGISEPP",
-    "name": "Кингисепп"
+    slug: "kingisepp",
+    code: "KINGISEPP",
+    nameRu: "Кингисепп",
+    nameEn: "Kingisepp",
+    aliases: [],
   },
   {
-    "slug": "kirishi",
-    "code": "KIRISHI",
-    "name": "Кириши"
+    slug: "kirishi",
+    code: "KIRISHI",
+    nameRu: "Кириши",
+    nameEn: "Kirishi",
+    aliases: [],
   },
   {
-    "slug": "kirovsk",
-    "code": "KIROVSK",
-    "name": "Кировск"
+    slug: "kirovsk",
+    code: "KIROVSK",
+    nameRu: "Кировск",
+    nameEn: "Kirovsk",
+    aliases: [],
   },
   {
-    "slug": "koltushi",
-    "code": "KOLTUSHI",
-    "name": "Колтуши"
+    slug: "koltushi",
+    code: "KOLTUSHI",
+    nameRu: "Колтуши",
+    nameEn: "Koltushi",
+    aliases: [],
   },
   {
-    "slug": "kommunar",
-    "code": "KOMMUNAR",
-    "name": "Коммунар"
+    slug: "kommunar",
+    code: "KOMMUNAR",
+    nameRu: "Коммунар",
+    nameEn: "Kommunar",
+    aliases: [],
   },
   {
-    "slug": "kudrovo",
-    "code": "KUDROVO",
-    "name": "Кудрово"
+    slug: "kudrovo",
+    code: "KUDROVO",
+    nameRu: "Кудрово",
+    nameEn: "Kudrovo",
+    aliases: [],
   },
   {
-    "slug": "lodeynoe-pole",
-    "code": "LODEYNOE_POLE",
-    "name": "Лодейное Поле"
+    slug: "lodeynoe-pole",
+    code: "LODEYNOE_POLE",
+    nameRu: "Лодейное Поле",
+    nameEn: "Lodeynoye Pole",
+    aliases: [],
   },
   {
-    "slug": "luga",
-    "code": "LUGA",
-    "name": "Луга"
+    slug: "luga",
+    code: "LUGA",
+    nameRu: "Луга",
+    nameEn: "Luga",
+    aliases: [],
   },
   {
-    "slug": "lyuban",
-    "code": "LYUBAN",
-    "name": "Любань"
+    slug: "lyuban",
+    code: "LYUBAN",
+    nameRu: "Любань",
+    nameEn: "Lyuban",
+    aliases: [],
   },
   {
-    "slug": "murino",
-    "code": "MURINO",
-    "name": "Мурино"
+    slug: "murino",
+    code: "MURINO",
+    nameRu: "Мурино",
+    nameEn: "Murino",
+    aliases: [],
   },
   {
-    "slug": "nikolskoe",
-    "code": "NIKOLSKOE",
-    "name": "Никольское"
+    slug: "nikolskoe",
+    code: "NIKOLSKOE",
+    nameRu: "Никольское",
+    nameEn: "Nikolskoye",
+    aliases: [],
   },
   {
-    "slug": "novaya-ladoga",
-    "code": "NOVAYA_LADOGA",
-    "name": "Новая Ладога"
+    slug: "novaya-ladoga",
+    code: "NOVAYA_LADOGA",
+    nameRu: "Новая Ладога",
+    nameEn: "Novaya Ladoga",
+    aliases: [],
   },
   {
-    "slug": "otradnoe",
-    "code": "OTRADNOE",
-    "name": "Отрадное"
+    slug: "otradnoe",
+    code: "OTRADNOE",
+    nameRu: "Отрадное",
+    nameEn: "Otradnoye",
+    aliases: [],
   },
   {
-    "slug": "pikalevo",
-    "code": "PIKALEVO",
-    "name": "Пикалёво"
+    slug: "pikalevo",
+    code: "PIKALEVO",
+    nameRu: "Пикалёво",
+    nameEn: "Pikalevo",
+    aliases: ["Pikalyovo"],
   },
   {
-    "slug": "podporozhe",
-    "code": "PODPOROZHE",
-    "name": "Подпорожье"
+    slug: "podporozhe",
+    code: "PODPOROZHE",
+    nameRu: "Подпорожье",
+    nameEn: "Podporozhye",
+    aliases: [],
   },
   {
-    "slug": "primorsk",
-    "code": "PRIMORSK",
-    "name": "Приморск"
+    slug: "primorsk",
+    code: "PRIMORSK",
+    nameRu: "Приморск",
+    nameEn: "Primorsk",
+    aliases: [],
   },
   {
-    "slug": "priozersk",
-    "code": "PRIOZERSK",
-    "name": "Приозерск"
+    slug: "priozersk",
+    code: "PRIOZERSK",
+    nameRu: "Приозерск",
+    nameEn: "Priozersk",
+    aliases: [],
   },
   {
-    "slug": "svetogorsk",
-    "code": "SVETOGORSK",
-    "name": "Светогорск"
+    slug: "svetogorsk",
+    code: "SVETOGORSK",
+    nameRu: "Светогорск",
+    nameEn: "Svetogorsk",
+    aliases: [],
   },
   {
-    "slug": "sertolovo",
-    "code": "SERTOLOVO",
-    "name": "Сертолово"
+    slug: "sertolovo",
+    code: "SERTOLOVO",
+    nameRu: "Сертолово",
+    nameEn: "Sertolovo",
+    aliases: [],
   },
   {
-    "slug": "slantsy",
-    "code": "SLANTSY",
-    "name": "Сланцы"
+    slug: "slantsy",
+    code: "SLANTSY",
+    nameRu: "Сланцы",
+    nameEn: "Slantsy",
+    aliases: [],
   },
   {
-    "slug": "sosnovyy-bor",
-    "code": "SOSNOVYY_BOR",
-    "name": "Сосновый Бор"
+    slug: "sosnovyy-bor",
+    code: "SOSNOVYY_BOR",
+    nameRu: "Сосновый Бор",
+    nameEn: "Sosnovy Bor",
+    aliases: [],
   },
   {
-    "slug": "syasstroy",
-    "code": "SYASSTROY",
-    "name": "Сясьстрой"
+    slug: "syasstroy",
+    code: "SYASSTROY",
+    nameRu: "Сясьстрой",
+    nameEn: "Syasstroy",
+    aliases: [],
   },
   {
-    "slug": "telmana",
-    "code": "TELMANA",
-    "name": "Тельмана"
+    slug: "telmana",
+    code: "TELMANA",
+    nameRu: "Тельмана",
+    nameEn: "Telmana",
+    aliases: [],
   },
   {
-    "slug": "tihvin",
-    "code": "TIHVIN",
-    "name": "Тихвин"
+    slug: "tihvin",
+    code: "TIHVIN",
+    nameRu: "Тихвин",
+    nameEn: "Tikhvin",
+    aliases: [],
   },
   {
-    "slug": "tosno",
-    "code": "TOSNO",
-    "name": "Тосно"
+    slug: "tosno",
+    code: "TOSNO",
+    nameRu: "Тосно",
+    nameEn: "Tosno",
+    aliases: [],
   },
   {
-    "slug": "shlisselburg",
-    "code": "SHLISSELBURG",
-    "name": "Шлиссельбург"
+    slug: "shlisselburg",
+    code: "SHLISSELBURG",
+    nameRu: "Шлиссельбург",
+    nameEn: "Shlisselburg",
+    aliases: [],
   },
   {
-    "slug": "bolshaya-izhora",
-    "code": "BOLSHAYA_IZHORA",
-    "name": "Большая Ижора"
+    slug: "bolshaya-izhora",
+    code: "BOLSHAYA_IZHORA",
+    nameRu: "Большая Ижора",
+    nameEn: "Bolshaya Izhora",
+    aliases: [],
   },
   {
-    "slug": "budogosch",
-    "code": "BUDOGOSCH",
-    "name": "Будогощь"
+    slug: "budogosch",
+    code: "BUDOGOSCH",
+    nameRu: "Будогощь",
+    nameEn: "Budogoshch",
+    aliases: [],
   },
   {
-    "slug": "vazhiny",
-    "code": "VAZHINY",
-    "name": "Важины"
+    slug: "vazhiny",
+    code: "VAZHINY",
+    nameRu: "Важины",
+    nameEn: "Vazhiny",
+    aliases: [],
   },
   {
-    "slug": "villozi",
-    "code": "VILLOZI",
-    "name": "Виллози"
+    slug: "villozi",
+    code: "VILLOZI",
+    nameRu: "Виллози",
+    nameEn: "Villozi",
+    aliases: [],
   },
   {
-    "slug": "voznesene",
-    "code": "VOZNESENE",
-    "name": "Вознесенье"
+    slug: "voznesene",
+    code: "VOZNESENE",
+    nameRu: "Вознесенье",
+    nameEn: "Voznesenye",
+    aliases: [],
   },
   {
-    "slug": "vyritsa",
-    "code": "VYRITSA",
-    "name": "Вырица"
+    slug: "vyritsa",
+    code: "VYRITSA",
+    nameRu: "Вырица",
+    nameEn: "Vyritsa",
+    aliases: [],
   },
   {
-    "slug": "druzhnaya-gorka",
-    "code": "DRUZHNAYA_GORKA",
-    "name": "Дружная Горка"
+    slug: "druzhnaya-gorka",
+    code: "DRUZHNAYA_GORKA",
+    nameRu: "Дружная Горка",
+    nameEn: "Druzhnaya Gorka",
+    aliases: [],
   },
   {
-    "slug": "efimovskiy",
-    "code": "EFIMOVSKIY",
-    "name": "Ефимовский"
+    slug: "efimovskiy",
+    code: "EFIMOVSKIY",
+    nameRu: "Ефимовский",
+    nameEn: "Yefimovsky",
+    aliases: ["Efimovsky"],
   },
   {
-    "slug": "imeni-morozova",
-    "code": "IMENI_MOROZOVA",
-    "name": "имени Морозова"
+    slug: "imeni-morozova",
+    code: "IMENI_MOROZOVA",
+    nameRu: "имени Морозова",
+    nameEn: "Imeni Morozova",
+    aliases: ["Морозова", "Morozova"],
   },
   {
-    "slug": "imeni-sverdlova",
-    "code": "IMENI_SVERDLOVA",
-    "name": "имени Свердлова"
+    slug: "imeni-sverdlova",
+    code: "IMENI_SVERDLOVA",
+    nameRu: "имени Свердлова",
+    nameEn: "Imeni Sverdlova",
+    aliases: ["Свердлова", "Sverdlova"],
   },
   {
-    "slug": "krasnyy-bor",
-    "code": "KRASNYY_BOR",
-    "name": "Красный Бор"
+    slug: "krasnyy-bor",
+    code: "KRASNYY_BOR",
+    nameRu: "Красный Бор",
+    nameEn: "Krasny Bor",
+    aliases: [],
   },
   {
-    "slug": "kuznechnoe",
-    "code": "KUZNECHNOE",
-    "name": "Кузнечное"
+    slug: "kuznechnoe",
+    code: "KUZNECHNOE",
+    nameRu: "Кузнечное",
+    nameEn: "Kuznechnoye",
+    aliases: [],
   },
   {
-    "slug": "kuzmolovskiy",
-    "code": "KUZMOLOVSKIY",
-    "name": "Кузьмоловский"
+    slug: "kuzmolovskiy",
+    code: "KUZMOLOVSKIY",
+    nameRu: "Кузьмоловский",
+    nameEn: "Kuzmolovsky",
+    aliases: [],
   },
   {
-    "slug": "lebyazhe",
-    "code": "LEBYAZHE",
-    "name": "Лебяжье"
+    slug: "lebyazhe",
+    code: "LEBYAZHE",
+    nameRu: "Лебяжье",
+    nameEn: "Lebyazhye",
+    aliases: [],
   },
   {
-    "slug": "lesogorskiy",
-    "code": "LESOGORSKIY",
-    "name": "Лесогорский"
+    slug: "lesogorskiy",
+    code: "LESOGORSKIY",
+    nameRu: "Лесогорский",
+    nameEn: "Lesogorsky",
+    aliases: [],
   },
   {
-    "slug": "mga",
-    "code": "MGA",
-    "name": "Мга"
+    slug: "mga",
+    code: "MGA",
+    nameRu: "Мга",
+    nameEn: "Mga",
+    aliases: [],
   },
   {
-    "slug": "naziya",
-    "code": "NAZIYA",
-    "name": "Назия"
+    slug: "naziya",
+    code: "NAZIYA",
+    nameRu: "Назия",
+    nameEn: "Naziya",
+    aliases: [],
   },
   {
-    "slug": "nevskaya-dubrovka",
-    "code": "NEVSKAYA_DUBROVKA",
-    "name": "Невская Дубровка"
+    slug: "nevskaya-dubrovka",
+    code: "NEVSKAYA_DUBROVKA",
+    nameRu: "Невская Дубровка",
+    nameEn: "Nevskaya Dubrovka",
+    aliases: [],
   },
   {
-    "slug": "nikolskiy",
-    "code": "NIKOLSKIY",
-    "name": "Никольский"
+    slug: "nikolskiy",
+    code: "NIKOLSKIY",
+    nameRu: "Никольский",
+    nameEn: "Nikolsky",
+    aliases: [],
   },
   {
-    "slug": "novosele",
-    "code": "NOVOSELE",
-    "name": "Новоселье"
+    slug: "novosele",
+    code: "NOVOSELE",
+    nameRu: "Новоселье",
+    nameEn: "Novoselye",
+    aliases: [],
   },
   {
-    "slug": "pavlovo",
-    "code": "PAVLOVO",
-    "name": "Павлово"
+    slug: "pavlovo",
+    code: "PAVLOVO",
+    nameRu: "Павлово",
+    nameEn: "Pavlovo",
+    aliases: [],
   },
   {
-    "slug": "priladozhskiy",
-    "code": "PRILADOZHSKIY",
-    "name": "Приладожский"
+    slug: "priladozhskiy",
+    code: "PRILADOZHSKIY",
+    nameRu: "Приладожский",
+    nameEn: "Priladozhsky",
+    aliases: [],
   },
   {
-    "slug": "rahya",
-    "code": "RAHYA",
-    "name": "Рахья"
+    slug: "rahya",
+    code: "RAHYA",
+    nameRu: "Рахья",
+    nameEn: "Rakhya",
+    aliases: [],
   },
   {
-    "slug": "roschino",
-    "code": "ROSCHINO",
-    "name": "Рощино"
+    slug: "roschino",
+    code: "ROSCHINO",
+    nameRu: "Рощино",
+    nameEn: "Roshchino",
+    aliases: [],
   },
   {
-    "slug": "ryabovo",
-    "code": "RYABOVO",
-    "name": "Рябово"
+    slug: "ryabovo",
+    code: "RYABOVO",
+    nameRu: "Рябово",
+    nameEn: "Ryabovo",
+    aliases: [],
   },
   {
-    "slug": "svirstroy",
-    "code": "SVIRSTROY",
-    "name": "Свирьстрой"
+    slug: "svirstroy",
+    code: "SVIRSTROY",
+    nameRu: "Свирьстрой",
+    nameEn: "Svirstroy",
+    aliases: [],
   },
   {
-    "slug": "siverskiy",
-    "code": "SIVERSKIY",
-    "name": "Сиверский"
+    slug: "siverskiy",
+    code: "SIVERSKIY",
+    nameRu: "Сиверский",
+    nameEn: "Siversky",
+    aliases: [],
   },
   {
-    "slug": "sinyavino",
-    "code": "SINYAVINO",
-    "name": "Синявино"
+    slug: "sinyavino",
+    code: "SINYAVINO",
+    nameRu: "Синявино",
+    nameEn: "Sinyavino",
+    aliases: [],
   },
   {
-    "slug": "sovetskiy",
-    "code": "SOVETSKIY",
-    "name": "Советский"
+    slug: "sovetskiy",
+    code: "SOVETSKIY",
+    nameRu: "Советский",
+    nameEn: "Sovetsky",
+    aliases: [],
   },
   {
-    "slug": "taytsy",
-    "code": "TAYTSY",
-    "name": "Тайцы"
+    slug: "taytsy",
+    code: "TAYTSY",
+    nameRu: "Тайцы",
+    nameEn: "Taytsy",
+    aliases: [],
   },
   {
-    "slug": "toksovo",
-    "code": "TOKSOVO",
-    "name": "Токсово"
+    slug: "toksovo",
+    code: "TOKSOVO",
+    nameRu: "Токсово",
+    nameEn: "Toksovo",
+    aliases: [],
   },
   {
-    "slug": "tolmachevo",
-    "code": "TOLMACHEVO",
-    "name": "Толмачёво"
+    slug: "tolmachevo",
+    code: "TOLMACHEVO",
+    nameRu: "Толмачёво",
+    nameEn: "Tolmachyovo",
+    aliases: [],
   },
   {
-    "slug": "ulyanovka",
-    "code": "ULYANOVKA",
-    "name": "Ульяновка"
+    slug: "ulyanovka",
+    code: "ULYANOVKA",
+    nameRu: "Ульяновка",
+    nameEn: "Ulyanovka",
+    aliases: [],
   },
   {
-    "slug": "fedorovskoe",
-    "code": "FEDOROVSKOE",
-    "name": "Фёдоровское"
+    slug: "fedorovskoe",
+    code: "FEDOROVSKOE",
+    nameRu: "Фёдоровское",
+    nameEn: "Fedorovskoye",
+    aliases: ["Fyodorovskoye"],
   },
   {
-    "slug": "fornosovo",
-    "code": "FORNOSOVO",
-    "name": "Форносово"
+    slug: "fornosovo",
+    code: "FORNOSOVO",
+    nameRu: "Форносово",
+    nameEn: "Fornosovo",
+    aliases: [],
   },
   {
-    "slug": "yanino-1",
-    "code": "YANINO_1",
-    "name": "Янино-1"
-  }
+    slug: "yanino-1",
+    code: "YANINO_1",
+    nameRu: "Янино-1",
+    nameEn: "Yanino-1",
+    aliases: [],
+  },
 ]) as readonly SettlementMeta[];
+
 export const settlementSlugs = Object.freeze(settlements.map((settlement) => settlement.slug)) as readonly SettlementSlug[];

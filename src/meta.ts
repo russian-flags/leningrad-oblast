@@ -13,7 +13,8 @@ const aliases = new Map<string, SettlementSlug>();
 /**
  * Нормализует пользовательский ввод перед поиском населённого пункта.
  *
- * На вход можно передать slug, код или русское название. Функция приводит строку к нижнему регистру,
+ * На вход можно передать slug, код, русское/английское название или alias.
+ * Функция приводит строку к нижнему регистру,
  * убирает пробелы по краям, заменяет `ё` на `е`, а пробелы и подчёркивания превращает в дефисы.
  */
 export function normalizeSettlementInput(input: SettlementInput): string {
@@ -25,17 +26,22 @@ export function normalizeSettlementInput(input: SettlementInput): string {
 }
 
 for (const settlement of settlements) {
-  aliases.set(normalizeSettlementInput(settlement.slug), settlement.slug);
-  aliases.set(normalizeSettlementInput(settlement.code), settlement.slug);
-  aliases.set(normalizeSettlementInput(settlement.name), settlement.slug);
-  aliases.set(normalizeSettlementInput(settlement.name.replace(/\u0451/g, "\u0435")), settlement.slug);
+  for (const value of [
+    settlement.slug,
+    settlement.code,
+    settlement.nameRu,
+    settlement.nameEn,
+    ...settlement.aliases,
+  ]) {
+    aliases.set(normalizeSettlementInput(value), settlement.slug);
+  }
 }
 
 /**
- * Возвращает slug населённого пункта по slug, коду или русскому названию.
+ * Возвращает slug населённого пункта по slug, коду, названию или alias.
  *
  * Учитывает те же правила нормализации, что и `normalizeSettlementInput`, поэтому принимает варианты
- * вроде `sosnovy-bor`, `sosnovy_bor`, `Сосновый Бор` или названия с буквой `ё`.
+ * вроде `sosnovy-bor`, `sosnovy_bor`, `Сосновый Бор`, `Sosnovy Bor` или названия с буквой `ё`.
  * Возвращает `undefined`, если населённый пункт не найден.
  */
 export function resolveSettlementSlug(input: SettlementInput): SettlementSlug | undefined {

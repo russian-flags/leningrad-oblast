@@ -1,6 +1,6 @@
 {
   "name": "@russian-flags/leningrad-oblast",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "SVG flags of cities and settlements in Leningrad Oblast, Russia for JavaScript and TypeScript: ESM imports and lazy loaders.",
   "repository": {
     "type": "git",

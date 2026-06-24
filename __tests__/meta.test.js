@@ -21,12 +21,22 @@ assert.equal(normalizeSettlementInput("YANINO_1"), "yanino-1");
 assert.equal(normalizeSettlementInput("Пикалёво"), "пикалево");
 
 for (const settlement of settlements) {
+  assert.equal(typeof settlement.nameRu, "string");
+  assert.equal(typeof settlement.nameEn, "string");
+  assert.ok(Array.isArray(settlement.aliases), "settlement aliases should be an array");
   assert.equal(resolveSettlementSlug(settlement.slug), settlement.slug);
   assert.equal(resolveSettlementSlug(settlement.code), settlement.slug);
-  assert.equal(resolveSettlementSlug(settlement.name), settlement.slug);
+  assert.equal(resolveSettlementSlug(settlement.nameRu), settlement.slug);
+  assert.equal(resolveSettlementSlug(settlement.nameEn), settlement.slug);
+  for (const alias of settlement.aliases) {
+    assert.equal(resolveSettlementSlug(alias), settlement.slug);
+  }
 }
 
 assert.equal(resolveSettlementSlug(" VYBORG "), "vyborg");
+assert.equal(resolveSettlementSlug("Volkhov"), "volhov");
+assert.equal(resolveSettlementSlug("Sosnovy Bor"), "sosnovyy-bor");
+assert.equal(resolveSettlementSlug("Fyodorovskoye"), "fedorovskoe");
 assert.equal(resolveSettlementSlug("sosnovyy_bor"), "sosnovyy-bor");
 assert.equal(resolveSettlementSlug("Пикалево"), "pikalevo");
 assert.equal(resolveSettlementSlug("неизвестный"), undefined);

@@ -19,7 +19,7 @@ A native ESM collection of SVG flags for cities and settlements in Leningrad Obl
 - 72 local SVG flags bundled with the package.
 - ESM build with TypeScript declarations.
 - Per-flag lazy loaders.
-- Lookup by slug, code, or Russian settlement name.
+- Lookup by slug, code, Russian/English settlement name, or alias.
 - Direct SVG imports via `flags/<slug>` or `svg/<slug>`.
 - Works with plain JavaScript, TypeScript, and modern bundlers.
 
@@ -41,7 +41,13 @@ npm install .
 import { loadFlag, settlements } from "@russian-flags/leningrad-oblast";
 
 console.log(settlements[0]);
-// { slug: "boksitogorsk", code: "BOKSITOGORSK", name: "Бокситогорск" }
+// {
+//   slug: "boksitogorsk",
+//   code: "BOKSITOGORSK",
+//   nameRu: "Бокситогорск",
+//   nameEn: "Boksitogorsk",
+//   aliases: [],
+// }
 
 const image = await loadFlag("vyborg", {
   alt: "Flag of Vyborg",
@@ -93,7 +99,9 @@ Most functions accept:
 
 - slug: `"vyborg"`;
 - code: `"VYBORG"`;
-- Russian name: `"Выборг"`.
+- Russian name: `"Выборг"`;
+- English name: `"Vyborg"`;
+- alias: `"Fyodorovskoye"`.
 
 ```js
 import {
@@ -107,6 +115,8 @@ console.log(settlementSlugs.includes("vyborg")); // true
 
 console.log(resolveSettlementSlug("VYBORG")); // "vyborg"
 console.log(resolveSettlementSlug("Выборг")); // "vyborg"
+console.log(resolveSettlementSlug("Vyborg")); // "vyborg"
+console.log(resolveSettlementSlug("Fyodorovskoye")); // "fedorovskoe"
 console.log(resolveSettlementSlug("yanino_1")); // "yanino-1"
 console.log(resolveSettlementSlug("unknown")); // undefined
 ```
@@ -121,7 +131,7 @@ import { loadFlag, settlements } from "@russian-flags/leningrad-oblast";
 for (const settlement of settlements) {
   const row = document.createElement("tr");
   row.dataset.slug = settlement.slug;
-  row.textContent = settlement.name;
+  row.textContent = settlement.nameRu;
   document.querySelector("tbody").append(row);
 }
 
@@ -160,10 +170,10 @@ Unknown values are ignored and do not throw.
 
 | Export | Description |
 | --- | --- |
-| `settlements` | Metadata array with `{ slug, code, name }`. |
+| `settlements` | Metadata array with `{ slug, code, nameRu, nameEn, aliases }`. |
 | `settlementSlugs` | Array of all available slugs. |
 | `normalizeSettlementInput(input)` | Normalizes user input before lookup. |
-| `resolveSettlementSlug(input)` | Resolves a slug from a slug, code, or name. |
+| `resolveSettlementSlug(input)` | Resolves a slug from a slug, code, name, or alias. |
 | `getFlagModuleLoader(input)` | Returns a lazy flag module loader or `undefined`. |
 | `loadFlagModule(input)` | Lazily imports a flag module. Throws for unknown input. |
 | `loadFlagImage(input, options)` | Loads a flag and returns an `HTMLImageElement`. |

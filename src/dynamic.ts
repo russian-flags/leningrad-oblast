@@ -5,7 +5,7 @@ import { resolveSettlementSlug } from "./meta.js";
 /**
  * Возвращает ленивый ESM-загрузчик модуля флага.
  *
- * На вход можно передать slug, код или русское название населённого пункта.
+ * На вход можно передать slug, код, русское/английское название или alias населённого пункта.
  * Возвращает `undefined`, если населённый пункт не найден.
  */
 export function getFlagModuleLoader(input: SettlementInput): (() => Promise<FlagModule>) | undefined {
@@ -19,7 +19,7 @@ export function getFlagModuleLoader(input: SettlementInput): (() => Promise<Flag
  * Используйте эту функцию, если нужен доступ к SVG URL и фабрике изображения.
  * Для обычного сценария с готовым `<img>` удобнее `loadFlagImage` или `loadFlag`.
  *
- * @throws Если slug, код или название населённого пункта неизвестны.
+ * @throws Если slug, код, название или alias населённого пункта неизвестны.
  */
 export async function loadFlagModule(input: SettlementInput): Promise<FlagModule> {
   const loader = getFlagModuleLoader(input);
@@ -36,7 +36,7 @@ export async function loadFlagModule(input: SettlementInput): Promise<FlagModule
  * Через `FlagImageOptions` можно переопределить alt, CSS-класс, размеры, dataset,
  * стили или произвольные атрибуты.
  *
- * @throws Если slug, код или название населённого пункта неизвестны.
+ * @throws Если slug, код, название или alias населённого пункта неизвестны.
  */
 export async function loadFlagImage(input: SettlementInput, options?: FlagImageOptions): Promise<HTMLImageElement> {
   const module = await loadFlagModule(input);

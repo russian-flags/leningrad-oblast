@@ -19,7 +19,7 @@
 - 72 локальных SVG-флага в составе пакета.
 - ESM-сборка с TypeScript-типами.
 - Ленивые загрузчики для каждого флага.
-- Поиск флага по slug, коду или русскому названию.
+- Поиск флага по slug, коду, русскому/английскому названию или alias.
 - Прямой импорт SVG-файлов через `flags/<slug>` или `svg/<slug>`.
 - Подходит для обычного JavaScript, TypeScript и современных сборщиков.
 
@@ -41,7 +41,13 @@ npm install .
 import { loadFlag, settlements } from "@russian-flags/leningrad-oblast";
 
 console.log(settlements[0]);
-// { slug: "boksitogorsk", code: "BOKSITOGORSK", name: "Бокситогорск" }
+// {
+//   slug: "boksitogorsk",
+//   code: "BOKSITOGORSK",
+//   nameRu: "Бокситогорск",
+//   nameEn: "Boksitogorsk",
+//   aliases: [],
+// }
 
 const image = await loadFlag("vyborg", {
   alt: "Флаг Выборга",
@@ -90,7 +96,9 @@ dist/flags/<slug>.svg
 
 - slug: `"vyborg"`;
 - код: `"VYBORG"`;
-- русское название: `"Выборг"`.
+- русское название: `"Выборг"`;
+- английское название: `"Vyborg"`;
+- alias: `"Fyodorovskoye"`.
 
 ```js
 import {
@@ -104,6 +112,8 @@ console.log(settlementSlugs.includes("vyborg")); // true
 
 console.log(resolveSettlementSlug("VYBORG")); // "vyborg"
 console.log(resolveSettlementSlug("Выборг")); // "vyborg"
+console.log(resolveSettlementSlug("Vyborg")); // "vyborg"
+console.log(resolveSettlementSlug("Fyodorovskoye")); // "fedorovskoe"
 console.log(resolveSettlementSlug("yanino_1")); // "yanino-1"
 console.log(resolveSettlementSlug("unknown")); // undefined
 ```
@@ -118,7 +128,7 @@ import { loadFlag, settlements } from "@russian-flags/leningrad-oblast";
 for (const settlement of settlements) {
   const row = document.createElement("tr");
   row.dataset.slug = settlement.slug;
-  row.textContent = settlement.name;
+  row.textContent = settlement.nameRu;
   document.querySelector("tbody").append(row);
 }
 
@@ -157,10 +167,10 @@ button.addEventListener("pointerenter", () => {
 
 | Экспорт | Описание |
 | --- | --- |
-| `settlements` | Массив метаданных `{ slug, code, name }`. |
+| `settlements` | Массив метаданных `{ slug, code, nameRu, nameEn, aliases }`. |
 | `settlementSlugs` | Массив всех доступных slug. |
 | `normalizeSettlementInput(input)` | Нормализует пользовательский ввод перед поиском. |
-| `resolveSettlementSlug(input)` | Возвращает slug по slug, коду или названию. |
+| `resolveSettlementSlug(input)` | Возвращает slug по slug, коду, названию или alias. |
 | `getFlagModuleLoader(input)` | Возвращает ленивый загрузчик модуля флага или `undefined`. |
 | `loadFlagModule(input)` | Лениво импортирует модуль флага. Бросает ошибку для неизвестного значения. |
 | `loadFlagImage(input, options)` | Загружает флаг и возвращает `HTMLImageElement`. |

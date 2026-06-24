@@ -17,7 +17,7 @@ const nameCollator = new Intl.Collator("ru");
 const settlementBySlug = new Map(settlements.map((settlement) => [settlement.slug, settlement]));
 let rowObserver;
 function sortedSettlements() {
-  return [...settlements].sort((left, right) => nameCollator.compare(left.name, right.name));
+  return [...settlements].sort((left, right) => nameCollator.compare(left.nameRu, right.nameRu));
 }
 function makeCell(className, children) {
   const cell = document.createElement("td");
@@ -29,7 +29,7 @@ function makeCell(className, children) {
 }
 function makePlaceCell(settlement) {
   const name = document.createElement("strong");
-  name.textContent = settlement.name;
+  name.textContent = settlement.nameRu;
   return makeCell("place", [name]);
 }
 function makeIdentifierCell(settlement) {
@@ -76,9 +76,9 @@ function renderImageError(frame) {
   frame.replaceChildren("\u043D\u0435 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0435\u0442\u0441\u044F");
 }
 function openFlagModal(image, settlement) {
-  flagModalTitle.textContent = settlement.name;
+  flagModalTitle.textContent = settlement.nameRu;
   flagModalImage.src = image.currentSrc || image.src;
-  flagModalImage.alt = `\u0424\u043B\u0430\u0433 ${settlement.name}`;
+  flagModalImage.alt = `\u0424\u043B\u0430\u0433 ${settlement.nameRu}`;
   if (typeof flagModal.showModal === "function") {
     flagModal.showModal();
   } else {
@@ -95,7 +95,7 @@ async function hydrateRow(row) {
     return;
   }
   const image = await loadFlag(slug, {
-    alt: `\u0424\u043B\u0430\u0433 ${settlement.name}`,
+    alt: `\u0424\u043B\u0430\u0433 ${settlement.nameRu}`,
     title: `flags/${slug}.svg`
   });
   image.addEventListener("error", () => {

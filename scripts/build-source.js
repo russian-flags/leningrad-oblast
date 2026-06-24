@@ -44,6 +44,15 @@ function stringValue(expression, sourceFile) {
   throw new Error(`Expected string literal in ${settlementsSource}: ${expression.getText(sourceFile)}`);
 }
 
+function stringArrayValue(expression, sourceFile) {
+  const arrayNode = unwrapExpression(expression);
+  if (!ts.isArrayLiteralExpression(arrayNode)) {
+    throw new Error(`Expected string array in ${settlementsSource}: ${expression.getText(sourceFile)}`);
+  }
+
+  return arrayNode.elements.map((element) => stringValue(unwrapExpression(element), sourceFile));
+}
+
 function findSettlementsArray(sourceFile) {
   let arrayNode;
 
@@ -85,10 +94,14 @@ function validateSettlements(settlements) {
   const seen = new Set();
 
   for (const settlement of settlements) {
-    for (const key of ["slug", "code", "name"]) {
+    for (const key of ["slug", "code", "nameRu", "nameEn"]) {
       if (!settlement[key]) {
         throw new Error(`Settlement is missing ${key}: ${JSON.stringify(settlement)}`);
       }
+    }
+
+    if (!Array.isArray(settlement.aliases)) {
+      throw new Error(`Settlement is missing aliases array: ${JSON.stringify(settlement)}`);
     }
 
     if (seen.has(settlement.slug)) {
@@ -126,8 +139,10 @@ async function loadSettlements() {
       }
 
       const key = propertyNameText(property.name);
-      if (key === "slug" || key === "code" || key === "name") {
+      if (key === "slug" || key === "code" || key === "nameRu" || key === "nameEn") {
         settlement[key] = stringValue(unwrapExpression(property.initializer), sourceFile);
+      } else if (key === "aliases") {
+        settlement[key] = stringArrayValue(property.initializer, sourceFile);
       }
     }
     return settlement;
@@ -199,7 +214,9 @@ async function buildTypes(settlements) {
     "export interface SettlementMeta {",
     "  readonly slug: SettlementSlug;",
     "  readonly code: string;",
-    "  readonly name: string;",
+    "  readonly nameRu: string;",
+    "  readonly nameEn: string;",
+    "  readonly aliases: readonly string[];",
     "}",
     "",
     "export type FlagImageAttributeValue = string | number | boolean | null | undefined;",
@@ -330,7 +347,7 @@ async function buildLoaderModules(settlements) {
       `export const src = new URL("../flags/${settlement.slug}.svg", import.meta.url).href;`,
       "",
       "export function createImage(options?: FlagImageOptions): HTMLImageElement {",
-      `  return createFlagImage(src, ${q(`Флаг ${settlement.name}`)}, options);`,
+      `  return createFlagImage(src, ${q(`Флаг ${settlement.nameRu}`)}, options);`,
       "}",
       "",
       "export default createImage;",
@@ -355,7 +372,8 @@ async function buildMeta() {
     "/**",
     " * Нормализует пользовательский ввод перед поиском населённого пункта.",
     " *",
-    " * На вход можно передать slug, код или русское название. Функция приводит строку к нижнему регистру,",
+    " * На вход можно передать slug, код, русское/английское название или alias.",
+    " * Функция приводит строку к нижнему регистру,",
     " * убирает пробелы по краям, заменяет `ё` на `е`, а пробелы и подчёркивания превращает в дефисы.",
     " */",
     "export function normalizeSettlementInput(input: SettlementInput): string {",
@@ -367,17 +385,22 @@ async function buildMeta() {
     "}",
     "",
     "for (const settlement of settlements) {",
-    "  aliases.set(normalizeSettlementInput(settlement.slug), settlement.slug);",
-    "  aliases.set(normalizeSettlementInput(settlement.code), settlement.slug);",
-    "  aliases.set(normalizeSettlementInput(settlement.name), settlement.slug);",
-    '  aliases.set(normalizeSettlementInput(settlement.name.replace(/\\u0451/g, "\\u0435")), settlement.slug);',
+    "  for (const value of [",
+    "    settlement.slug,",
+    "    settlement.code,",
+    "    settlement.nameRu,",
+    "    settlement.nameEn,",
+    "    ...settlement.aliases,",
+    "  ]) {",
+    "    aliases.set(normalizeSettlementInput(value), settlement.slug);",
+    "  }",
     "}",
     "",
     "/**",
-    " * Возвращает slug населённого пункта по slug, коду или русскому названию.",
+    " * Возвращает slug населённого пункта по slug, коду, названию или alias.",
     " *",
     " * Учитывает те же правила нормализации, что и `normalizeSettlementInput`, поэтому принимает варианты",
-    " * вроде `sosnovy-bor`, `sosnovy_bor`, `Сосновый Бор` или названия с буквой `ё`.",
+    " * вроде `sosnovy-bor`, `sosnovy_bor`, `Сосновый Бор`, `Sosnovy Bor` или названия с буквой `ё`.",
     " * Возвращает `undefined`, если населённый пункт не найден.",
     " */",
     "export function resolveSettlementSlug(input: SettlementInput): SettlementSlug | undefined {",
@@ -395,7 +418,7 @@ async function buildDynamic() {
     "/**",
     " * Возвращает ленивый ESM-загрузчик модуля флага.",
     " *",
-    " * На вход можно передать slug, код или русское название населённого пункта.",
+    " * На вход можно передать slug, код, русское/английское название или alias населённого пункта.",
     " * Возвращает `undefined`, если населённый пункт не найден.",
     " */",
     "export function getFlagModuleLoader(input: SettlementInput): (() => Promise<FlagModule>) | undefined {",
@@ -409,7 +432,7 @@ async function buildDynamic() {
     " * Используйте эту функцию, если нужен доступ к SVG URL и фабрике изображения.",
     " * Для обычного сценария с готовым `<img>` удобнее `loadFlagImage` или `loadFlag`.",
     " *",
-    " * @throws Если slug, код или название населённого пункта неизвестны.",
+    " * @throws Если slug, код, название или alias населённого пункта неизвестны.",
     " */",
     "export async function loadFlagModule(input: SettlementInput): Promise<FlagModule> {",
     "  const loader = getFlagModuleLoader(input);",
@@ -426,7 +449,7 @@ async function buildDynamic() {
     " * Через `FlagImageOptions` можно переопределить alt, CSS-класс, размеры, dataset,",
     " * стили или произвольные атрибуты.",
     " *",
-    " * @throws Если slug, код или название населённого пункта неизвестны.",
+    " * @throws Если slug, код, название или alias населённого пункта неизвестны.",
     " */",
     "export async function loadFlagImage(input: SettlementInput, options?: FlagImageOptions): Promise<HTMLImageElement> {",
     "  const module = await loadFlagModule(input);",

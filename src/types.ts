@@ -4,7 +4,9 @@ export type SettlementInput = SettlementSlug | string;
 export interface SettlementMeta {
   readonly slug: SettlementSlug;
   readonly code: string;
-  readonly name: string;
+  readonly nameRu: string;
+  readonly nameEn: string;
+  readonly aliases: readonly string[];
 }
 
 export type FlagImageAttributeValue = string | number | boolean | null | undefined;
